@@ -9,3 +9,11 @@ class estado(models.Model):
 
     def __str__(self):
         return f"{self.nome} ({self.sigla})"
+    
+class cidade(models.Model):
+    nome = models.CharField(max_length=100)
+    estado = models.ForeignKey(estado, on_delete=models.PROTECT)
+    
+    def __str__(self):
+        return f"{self.nome} ({self.estado})"
+
